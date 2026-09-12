@@ -225,9 +225,9 @@ export const InvestigationProvider: React.FC<{ children: ReactNode }> = ({ child
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
     try {
       const saved = localStorage.getItem('tracex_is_authenticated');
-      if (saved === 'false') return false;
+      if (saved === 'true') return true;
     } catch (e) {}
-    return true; // Default to authenticated so landing page loads immediately
+    return false; // Default to false so login page is displayed on initial visit
   });
 
   const loginUser = (email: string, password?: string, role?: UserRole): boolean => {
